@@ -1,24 +1,53 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './style.css';
+import Navbar from './Components/Navbar.jsx';
+import Tile from './Components/Tile.jsx';
+import { Container } from 'react-bootstrap';
+// import { Container, Nav } from "./Components/styled-components.js"
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Container>
+        <Navbar />
+        <Container className="container-fluid pr-5 pl-5 pt-5 pb-5">
+          {/* This is the first row of the tiles of information */}
+          <Container className="row">
+              <Tile 
+                TileTitle="Tile One"
+                TileMessage="This is information for the first tile"
+              />
+              <Tile
+                TileTitle="Tile Two"
+                TileMessage="This is information for the first tile"
+              />
+              <Tile
+                TileTitle="Tile Three"
+                TileMessage="This is information for the first"
+              />
+            </Container>
+          {/* this is the second row of information */}
+          {/* etc etc ... */}
+
+          <Container className="row">
+              <Tile 
+                TileTitle="Tile One"
+                TileMessage="This is information for the first tile"
+              />
+              <Tile
+                TileTitle="Tile Two"
+                TileMessage="This is information for the first tile"
+              />
+              <Tile
+                TileTitle="Tile Three"
+                TileMessage="This is information for the first tile"
+              />
+            </Container>
+
+        </Container>
+      </Container>
+
     </div>
   );
 }
