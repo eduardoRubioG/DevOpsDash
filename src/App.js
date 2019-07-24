@@ -2,21 +2,20 @@ import React from 'react';
 import './style.css';
 import Navbar from './Components/Navbar.jsx';
 import Tile from './Components/Tile.jsx';
-import { Container } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 // import { Container, Nav } from "./Components/styled-components.js"
 
 
 function App() {
   return (
-    <div className="App">
-      <Container>
+      <>
         <Navbar />
         <Container className="container-fluid pr-5 pl-5 pt-5 pb-5">
           {/* This is the first row of the tiles of information */}
-          <Container className="row">
+          <Row>
               <Tile 
-                TileTitle="Tile One"
-                TileMessage="This is information for the first tile"
+                TileTitle="GitHub Open Pull Requests"
+                TileMessage="16"
               />
               <Tile
                 TileTitle="Tile Two"
@@ -26,11 +25,11 @@ function App() {
                 TileTitle="Tile Three"
                 TileMessage="This is information for the first"
               />
-            </Container>
+            </Row>
           {/* this is the second row of information */}
           {/* etc etc ... */}
 
-          <Container className="row">
+          <Row>
               <Tile 
                 TileTitle="Tile One"
                 TileMessage="This is information for the first tile"
@@ -43,12 +42,10 @@ function App() {
                 TileTitle="Tile Three"
                 TileMessage="This is information for the first tile"
               />
-            </Container>
+            </Row>
 
         </Container>
-      </Container>
-
-    </div>
+      </>
   );
 }
 

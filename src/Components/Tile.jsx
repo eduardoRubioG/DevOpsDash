@@ -1,8 +1,9 @@
 import React from 'react';
+import { Col } from 'react-bootstrap';
 
 const Tile = (props) => { 
 return (
-  <div className="col-lg-3 col-sm-6 is-light-text mb-4">
+  <Col className="col-lg-4 col-sm-6 is-light-text mb-4">
     <div className="card grid-card is-card-dark">
      <div className="card-heading">
       <div className="is-dark-text-light letter-spacing text-small">
@@ -15,7 +16,7 @@ return (
       </span>
      </div>
     </div>
-  </div>
+  </Col>
 );
 }
 
