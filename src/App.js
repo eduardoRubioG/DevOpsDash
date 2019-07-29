@@ -3,7 +3,8 @@ import './style.css';
 import Navbar from './Components/Navbar.jsx';
 import Tile from './Components/Tile.jsx';
 import { Container, Row } from 'react-bootstrap';
-import GitHubTile from './Components/GitHubTile/GitHubTile'
+import TestJob from "./Jobs/testJob"
+import TestTile from './Components/TestTile'
 // import { Container, Nav } from "./Components/styled-components.js"
 
 
@@ -14,11 +15,12 @@ function App() {
         <Container className="container-fluid pr-5 pl-5 pt-5 pb-5">
           {/* This is the first row of the tiles of information */}
           <Row>
-              <GitHubTile 
+              <TestTile 
                 TileTitle="GitHub Open Pull Requests"
                 TileMessage="16"
               />
               <Tile
+                TileJob={TestJob}
                 TileTitle="Tile Two"
                 TileMessage="This is"
               />
