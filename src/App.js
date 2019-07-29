@@ -20,13 +20,14 @@ function App() {
               />
               <Tile
                 TileTitle="Tile Two"
-                TileMessage="This is information for the first tile"
+                TileMessage="This is"
               />
               <Tile
                 TileTitle="Tile Three"
-                TileMessage="This is information for the first"
+                TileMessage="This"
               />
             </Row>
+            
           {/* this is the second row of information */}
           {/* etc etc ... */}
 
