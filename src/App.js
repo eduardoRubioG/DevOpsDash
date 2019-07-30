@@ -5,6 +5,7 @@ import Tile from './Components/Tile.jsx';
 import { Container, Row } from 'react-bootstrap';
 import TestJob from "./Utils/testJob"
 import GitHubTile from './Components/ChildTiles/GitHubTile'
+import CircleCITile from './Components/ChildTiles/CircleCITile'
 require('dotenv').config();
 // import { Container, Nav } from "./Components/styled-components.js"
 
@@ -17,8 +18,7 @@ function App() {
           {/* This is the first row of the tiles of information */}
           <Row>
               <GitHubTile />
-              <Tile
-                TileJob={TestJob}
+              <CircleCITile
                 TileTitle="Tile Two"
                 TileMessage="This is"
               />
