@@ -4,7 +4,7 @@ import Navbar from './Components/Navbar.jsx';
 import Tile from './Components/Tile.jsx';
 import { Container, Row } from 'react-bootstrap';
 import TestJob from "./Utils/testJob"
-import GitHubTile from './Components/GitHubTile'
+import GitHubTile from './Components/ChildTiles/GitHubTile'
 require('dotenv').config();
 // import { Container, Nav } from "./Components/styled-components.js"
 
@@ -16,10 +16,7 @@ function App() {
         <Container className="container-fluid pr-5 pl-5 pt-5 pb-5">
           {/* This is the first row of the tiles of information */}
           <Row>
-              <GitHubTile 
-                TileTitle="GitHub Open Pull Requests"
-                TileMessage="16"
-              />
+              <GitHubTile />
               <Tile
                 TileJob={TestJob}
                 TileTitle="Tile Two"

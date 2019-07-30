@@ -1,7 +1,7 @@
 import React from 'react'; 
-import ParentTile from './Tile';
-import MyJob from '../Utils/testJob';
-import testJob from '../Utils/testJob';
+import ParentTile from '../Tile';
+import MyJob from '../../Utils/testJob';
+import testJob from '../../Utils/testJob';
 
 class GitHubTile extends ParentTile { 
   constructor(props) { 
