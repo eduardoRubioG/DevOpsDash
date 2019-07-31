@@ -14,7 +14,7 @@ function App() {
   return (
       <>
         <Navbar />
-        <Container className="container-fluid pr-5 pl-5 pt-5 pb-5">
+        <div className="container-fluid pr-5 pl-5 pt-5 pb-5">
           {/* This is the first row of the tiles of information */}
           <Row>
               <GitHubTile />
@@ -45,8 +45,7 @@ function App() {
                 TileMessage="This is information for the first tile"
               />
             </Row>
-
-        </Container>
+        </div>
       </>
   );
 }

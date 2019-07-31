@@ -44,7 +44,7 @@ class GitHubTile extends ParentTile {
     //   return <p>{error.message}</p>
     // }
     return ( 
-        <ParentTile 
+        <ParentTile
         TileTitle="Allconnext PR Count"
         TileMessage={ isLoading ? "Loading..." : prCount }/>
     );
