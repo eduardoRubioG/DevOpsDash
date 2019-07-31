@@ -3,6 +3,10 @@ import './style.css';
 import Navbar from './Components/Navbar.jsx';
 import Tile from './Components/Tile.jsx';
 import { Container, Row } from 'react-bootstrap';
+import TestJob from "./Utils/testJob"
+import GitHubTile from './Components/ChildTiles/GitHubTile'
+import CircleCITile from './Components/ChildTiles/CircleCITile'
+require('dotenv').config();
 // import { Container, Nav } from "./Components/styled-components.js"
 
 
@@ -10,14 +14,11 @@ function App() {
   return (
       <>
         <Navbar />
-        <Container className="container-fluid pr-5 pl-5 pt-5 pb-5">
+        <div className="container-fluid pr-5 pl-5 pt-5 pb-5">
           {/* This is the first row of the tiles of information */}
           <Row>
-              <Tile 
-                TileTitle="GitHub Open Pull Requests"
-                TileMessage="16"
-              />
-              <Tile
+              <GitHubTile />
+              <CircleCITile
                 TileTitle="Tile Two"
                 TileMessage="This is"
               />
@@ -44,8 +45,7 @@ function App() {
                 TileMessage="This is information for the first tile"
               />
             </Row>
-
-        </Container>
+        </div>
       </>
   );
 }
