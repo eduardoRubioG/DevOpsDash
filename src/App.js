@@ -2,20 +2,21 @@ import React from 'react';
 import './style.css';
 import Navbar from './Components/Navbar.jsx';
 import Tile from './Components/Tile.jsx';
-import { Container, Row } from 'react-bootstrap';
-import GitHubTile from './Components/ChildTiles/GitHubTile.jsx';
-// import { Container, Nav } from "./Components/styled-components.js"
-
+import { Row } from 'react-bootstrap';
+import TestJob from "./Utils/testJob"
+import GitHubTile from './Components/ChildTiles/GitHubTile'
+import CircleCITile from './Components/ChildTiles/CircleCITile'
+require('dotenv').config();
 
 function App() {
   return (
       <>
         <Navbar />
-        <Container className="container-fluid pr-5 pl-5 pt-5 pb-5">
+        <div className="container-fluid pr-5 pl-5 pt-5 pb-5">
           {/* This is the first row of the tiles of information */}
           <Row>
               <GitHubTile />
-              <Tile
+              <CircleCITile
                 TileTitle="Tile Two"
                 TileMessage="This is"
               />
@@ -42,8 +43,7 @@ function App() {
                 TileMessage="This is information for the first tile"
               />
             </Row>
-
-        </Container>
+        </div>
       </>
   );
 }

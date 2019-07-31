@@ -20,11 +20,11 @@ class GitHubTile extends React.Component {
   fetchData () { 
     fetch("https://api.github.com/repos/RedVentures/allconnext/pulls", {
       headers: {
-        /* DO NOT COMMIT */
         "Authorization": "token " + process.env.REACT_APP_GITHUB_SECRET //Pull in secret token via variable 
       }
     })
     .then(response => {
+      console.log("response: ", response);
       if(response.ok) {
         return response.json();
       } else { 
@@ -42,9 +42,10 @@ class GitHubTile extends React.Component {
     //   return <p>{error.message}</p>
     // }
     return ( 
-        <ParentTile className="col-lg-8"
+        <ParentTile 
         TileTitle="Allconnext PR Count"
-        TileMessage={ isLoading ? "Loading..." : prCount }/>
+        TileMessage={ isLoading ? "Loading..." : prCount }
+        />
     );
   }
 }
