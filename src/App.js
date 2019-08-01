@@ -12,7 +12,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <Container>
+      <div> {/*  Don't make this a container because the format won't work due to all the padding */}
         <div className="container-fluid">
          <div className="card-columns">
           {/* GitHub List of Pull Requests */}
@@ -73,11 +73,11 @@ function App() {
           {/* Visitor Count  */}
           <div class="card">
             <h4 className="card-header"> 
-              Allconnext Visitor Count
+              Allconnext Page Load Speed
             </h4>
             <div className="card-body">
               <h2 className="card-text">
-                182.3k
+                1.24s
               </h2>
             </div>
             <div className="card-footer">
@@ -105,11 +105,11 @@ function App() {
           {/* Visitor Count  */}
           <div class="card">
             <h4 className="card-header"> 
-              Allconnext Visitor Count
+              Total Weekly Commits
             </h4>
             <div className="card-body">
               <h2 className="card-text">
-                182.3k
+                58
               </h2>
             </div>
             <div className="card-footer">
@@ -118,7 +118,7 @@ function App() {
           </div>
         </div>
         </div>
-      </Container>
+      </div>
       <nav className="navbar fixed-bottom is-dark is-light-text"></nav>
     </>
 
