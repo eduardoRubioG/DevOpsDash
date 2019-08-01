@@ -17,7 +17,9 @@ class Tile extends React.Component {
 
   render () { 
     return (
-      <Col className="col-lg-4 col-sm-6 is-light-text mb-4">
+      // col-lg-4 col-sm-6
+      <div className="card-columns">
+      <Col className=" is-light-text mb-4">
         <Container className="card grid-card is-card-dark">
          <Container className="card-heading">
           <Container className="is-dark-text-light letter-spacing text-small">
@@ -31,6 +33,7 @@ class Tile extends React.Component {
          </Container>
         </Container>
       </Col>
+      </div>
     );
   }
 }
