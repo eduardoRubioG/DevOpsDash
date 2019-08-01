@@ -1,52 +1,50 @@
 import React from 'react'; 
-import ParentTile from '../Tile';
-import MyJob from '../../Utils/testJob';
-import testJob from '../../Utils/testJob';
+import getPullRequestCount from "../../Utils/GitHubPullReqs";
+const config = require("../../../src/config");
 
-class GitHubTile extends ParentTile { 
+/**
+ * This component will return a card with a list of requested pull requests and their 
+ *  respective counts of open pull requests 
+ * 
+ *  Additionally, there will be pertienent links for these repos 
+ */
+class GitHubTile extends React.Component { 
   constructor(props) { 
-    super(props);
-    // Something 
+    super(props); 
     this.state = { 
-      prCount: null,
-      isLoading: false,
-      error: null, 
+      info: [],
     }
   }
-
-  componentDidMount () {
-    this.setState({isLoading: true}); 
-    this.fetchData();
+  componentDidMount () { 
+    this.generateList();
   }
 
-  fetchData () { 
-    fetch("https://api.github.com/repos/RedVentures/allconnext/pulls", {
-      headers: {
-        /* DO NOT COMMIT */
-        "Authorization": "token " + process.env.REACT_APP_GITHUB_SECRET //Pull in secret token via variable 
+async generateList() { 
+    this.props.repos.forEach(async (element) => {
+      let newItem = { 
+        prCount: await getPullRequestCount(element), 
+        repoName: element,
       }
-    })
-    .then(response => {
-      if(response.ok) {
-        return response.json();
-      } else { 
-        throw new Error("Hmm...Something is wrong");
-      }
-    })
-    .then(data  => this.setState({ prCount: Object.keys(data).length, isLoading: false }))
-    .catch(error => this.setState({ error, isLoading: false }));
+      this.setState({info: [...this.state.info, newItem]});
+    });
   }
 
   render () { 
-    const { prCount, isLoading, error } = this.state;
-    //Todo: Display error message --> 
-    // if( error ) { 
-    //   return <p>{error.message}</p>
-    // }
-    return ( 
-        <ParentTile
-        TileTitle="Allconnext PR Count"
-        TileMessage={ isLoading ? "Loading..." : prCount }/>
+    return (
+      <div className="card">
+        <h4 className="card-header">
+          Open Pull Requests
+        </h4>
+        <ul className="list-group list-group-flush">
+          {this.state.info.map(item => 
+            <li className="list-group-item list-group-flush" key={item.repoName}>
+              {item.repoName}<span className="float-right">{item.prCount}</span>
+            </li>)}
+        </ul>
+        <div className="card-footer">
+          <a href={`${config.RV_GITHUB}`} target="_blank" className="card-link" rel="noopener noreferrer">Open Repos</a>
+        </div>
+      </div>
     );
   }
 }
