@@ -11,9 +11,9 @@ async function getPullRequestCount(reponame) {
       headers: { 
         "Authorization": "token " + process.env.REACT_APP_GITHUB_SECRET
       }
-    });
-    const pullRequests = await prs.json();
-    return pullRequests.length;
+    })
+    .then((res) => res.json())
+    .then((res) => res.length);
   } catch(e) { 
     //Error
     console.log("Hmmm...something went wrong");
