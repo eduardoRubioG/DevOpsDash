@@ -2,6 +2,30 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Application Structure
+### File Tree Breakdown
+// Explain the file structure in here 
+
+## Creating new components, or "Tiles"
+// Adding the component in the component dir and also where to import them 
+// and what general structure they should follow (mentioning the utils and how they work) 
+
+## Adding New Utilities 
+### What is a utility in the context of this application? 
+### Adding new utilities 
+// Adding the js file in the Util folder and also where to import the new functions 
+
+## Authentification Handling 
+// Adding secrets to the .env file (or whatever)
+
+## "This sucks. I want my own version"
+## Dynamic Structure 
+// Talk about Bootstrap dynamic compositions and walk over 
+// the general App.js structure and how it could be modified 
+//Include image of application on mobile 
+
+# End of my README
+
 ## Available Scripts
 
 In the project directory, you can run:
