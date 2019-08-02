@@ -13,7 +13,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Adding New Utilities 
 ### What is a utility in the context of this application? 
 ### Adding new utilities 
-// Adding the js file in the Util folder and also where to import the new functions 
+// Adding the js file in the Util folder and also where to import the new functions
+// aka, the purpose of the `index.js` file in the util folder
 
 ## Authentification Handling 
 // Adding secrets to the .env file (or whatever)
