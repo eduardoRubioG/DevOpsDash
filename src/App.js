@@ -1,11 +1,10 @@
 import React from 'react';
 import './style.css';
 import Navbar from './Components/Navbar.jsx';
-import Tile from './Components/Tile.jsx';
 import { Container } from 'react-bootstrap';
-import TestJob from "./Utils/GitHubPullReqs"
-import GitHubTile from './Components/ChildTiles/GitHubTile'
-import CircleCITile from './Components/ChildTiles/CircleCITile'
+import ListTile from './Components/ListTile'
+import * as Utils from './Utils/index'
+
 require('dotenv').config();
 
 function App() {
@@ -16,23 +15,17 @@ function App() {
         <div className="container-fluid">
          <div className="card-columns">
           {/* GitHub List of Pull Requests */}
-          <GitHubTile repos={["allconnext", "allconnext-wp", "allconnect.com-blog", "allconnect.com"]}/>
+          <ListTile 
+            title="Open Pull Requests"
+            tokens={["allconnext", "allconnext-wp", "allconnect.com-blog", "allconnect.com"]}
+            util={ Utils.getPullRequestCount }
+          />
 
-          {/* CCI Repo Statuses */}
-          <div className="card">
-            <h4 className="card-header">
-              CircelCI Repo Statuses
-            </h4>
-            <ul className="list-group list-group-flush">
-              <li className="list-group-item">Allconnext <span className="float-right">Success</span></li>
-              <li className="list-group-item">Allconnect.com <span className="float-right">Success</span></li>
-              <li className="list-group-item">Allconnext-WP <span className="float-right">Failure</span></li>
-              <li className="list-group-item">Allconnext <span className="float-right">Success</span></li>
-            </ul>
-            <div className="card-footer">
-            <a href="#" className="card-link">Card link</a>
-            </div>
-          </div>
+          <ListTile
+            title="CircleCI Repo Statuses"
+            tokens={["allconnext", "allconnext-wp", "allconnect.com-blog", "allconnect.com"]}
+            util={Utils.getCCIRepoStatus}
+          />
 
           {/* Open Multidev Environments  */}
           <div className="card">
