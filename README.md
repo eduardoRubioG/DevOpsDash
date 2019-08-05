@@ -25,6 +25,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 // the general App.js structure and how it could be modified 
 //Include image of application on mobile 
 
+## Wishlist: Looking Forward
+
 # End of my README
 
 ## Available Scripts
