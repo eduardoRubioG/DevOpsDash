@@ -15,6 +15,13 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Adding new utilities 
 // Adding the js file in the Util folder and also where to import the new functions
 // aka, the purpose of the `index.js` file in the util folder
+Your utilities, or JavaScript files that internally make any API calls and return consumable data, should all live in the `Utils` directory. However, there is one file in the `Utils` directory, named `index.js`, that will import all of the exported functions from the files in `Utils`. Then, `index.js` exports them as one so that you may, in the `App.js` file, call any of these functions from a single import. 
+
+So, in order to uniformly call a new util: 
+ * Create a new JavaScript file, `foo.js`, in the `Utils` folder and export the main function, `fooFunction` 
+ * Import `fooFunction` in the `index.js` file 
+ * add the newly imported function to the `index.js` exports
+ * You may now call this function as `Utils.fooFunction` in `App.js`
 
 ## Authentification Handling 
 // Adding secrets to the .env file (or whatever)
