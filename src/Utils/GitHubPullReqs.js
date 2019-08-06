@@ -14,6 +14,7 @@ async function getPullRequestCount(reponame) {
     })
     .then((res) => res.json())
     .then((res) => res.length);
+    return prs;
   } catch(e) { 
     //Error
     console.log("Hmmm...something went wrong");

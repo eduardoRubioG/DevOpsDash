@@ -34,16 +34,17 @@ class ListTile extends React.Component {
   // Generate or update list of information to be displayed in the card 
   // or update the list periodically 
   async generateList() { 
+    console.log("refresh...")
       this.state.tokens.forEach(async (element,index) => {
-        const newItem = { 
+        let newItem = { 
           key: element,
           data: await this.state.util(element), 
         }
-        if( !Array.isArray(this.state.info) === undefined || this.state.info.length < this.props.tokens.length){
+        if(this.state.info.length < this.state.tokens.length){
           this.setState({info: [...this.state.info, newItem]});
         } else {
           const new_info = this.state.info.slice();
-          new_info[index] = newItem;
+          new_info[element] = newItem;
           this.setState({info: new_info});
         }
       });
