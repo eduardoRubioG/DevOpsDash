@@ -8,7 +8,9 @@ const config = require("../config");
  * 
  *  Additionally, there will be pertienent links for these repos 
  */
+
 class ListTile extends React.Component { 
+  interval_key;
   constructor(props) { 
     super(props); 
     this.state = { 
@@ -16,21 +18,36 @@ class ListTile extends React.Component {
       util: this.props.util,
       tokens: this.props.tokens, 
       link: this.props.link,
+      refresh: this.props.refresh,
       info: [],
     }
   }
+
   componentDidMount () { 
     this.generateList();
   }
 
+  componentWillUnmount () { 
+    clearTimeout(this.interval_key);
+  }
+
+  // Generate or update list of information to be displayed in the card 
+  // or update the list periodically 
   async generateList() { 
-      this.state.tokens.forEach(async (element) => {
+      this.state.tokens.forEach(async (element,index) => {
         let newItem = { 
           key: element,
           data: await this.state.util(element), 
         }
-        this.setState({info: [...this.state.info, newItem]});
+        if( !Array.isArray(this.state.info) === undefined || this.state.info.length < this.props.tokens.length){
+          this.setState({info: [...this.state.info, newItem]});
+        } else {
+          const new_info = this.state.info.slice();
+          new_info[index] = newItem;
+          this.setState({info: new_info});
+        }
       });
+      this.interval_key = setTimeout(this.generateList.bind(this), this.state.refresh);
     }
 
   render () { 
@@ -40,7 +57,7 @@ class ListTile extends React.Component {
         <ul className="list-group list-group-flush">
           {this.state.info.map(element => 
             <li className="list-group-item list-group-flush" key={`list-element-${element.key}`}>
-              {element.key}<span className="float-right">{element.data}</span>
+              {element.key}<span className="float-right">{element.data ? element.data : `...`}</span>
             </li>)}
         </ul>
         <div className="card-footer">
@@ -75,7 +92,13 @@ ListTile.propTypes = {
    * Dev is optionally able to pass a link through. If not, then no link will be displayed in the footer
    * If multiple links are provided, then a pop-over will be generated in the footer 
    */
-  link: PropTypes.oneOf([PropTypes.string, PropTypes.arrayOf(PropTypes.string)])
+  link: PropTypes.oneOf([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+
+  /**
+   * This is the desired rate for a particular instance of the tile. 
+   * e.g. A refresh rate of 5000 means the tile refreshes itself every 5 seconds 
+   */
+  refresh: PropTypes.number.isRequired,
 }
 
 export default ListTile;
