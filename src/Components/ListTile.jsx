@@ -1,12 +1,12 @@
 import React from 'react'; 
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 const config = require("../config");
 
 /**
  * This component will return a card with a list of requested pull requests and their 
  *  respective counts of open pull requests 
  * 
- *  Additionally, there will be pertienent links for these repos 
+ *  Additionally, there will be pertinent links for these repos 
  */
 
 class ListTile extends React.Component { 
@@ -35,7 +35,7 @@ class ListTile extends React.Component {
   // or update the list periodically 
   async generateList() { 
       this.state.tokens.forEach(async (element,index) => {
-        let newItem = { 
+        const newItem = { 
           key: element,
           data: await this.state.util(element), 
         }

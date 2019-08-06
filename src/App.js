@@ -19,14 +19,14 @@ function App() {
             title="Open Pull Requests"
             tokens={["allconnext", "allconnext-wp", "allconnect.com-blog", "allconnect.com"]}
             util={ Utils.getPullRequestCount }
-            refresh={5000}
+            refresh={30000}
           />
 
           <ListTile
             title="CircleCI Repo Statuses"
             tokens={["allconnext", "allconnext-wp", "allconnect.com-blog", "allconnect.com"]}
             util={Utils.getCCIRepoStatus}
-            refresh={5000}
+            refresh={30000}
           />
 
           {/* Open Multidev Environments  */}
