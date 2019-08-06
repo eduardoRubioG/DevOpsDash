@@ -39,7 +39,7 @@ class ListTile extends React.Component {
         <h4 className="card-header">{this.state.title}</h4>
         <ul className="list-group list-group-flush">
           {this.state.info.map(element => 
-            <li className="list-group-item list-group-flush" key={element.key}>
+            <li className="list-group-item list-group-flush" key={`list-element-${element.key}`}>
               {element.key}<span className="float-right">{element.data}</span>
             </li>)}
         </ul>
