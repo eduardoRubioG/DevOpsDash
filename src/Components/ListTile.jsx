@@ -61,7 +61,7 @@ class ListTile extends React.Component {
             </li>)}
         </ul>
         <div className="card-footer">
-          <a href={`${config.RV_GITHUB}`} target="_blank" className="card-link" rel="noopener noreferrer">Open Repos</a>
+          <a href={`${config.RV_GITHUB}`} target="_blank" className="card-link" rel="noopener noreferrer">{this.props.linkTitle}</a>
         </div>
       </div>
     );
